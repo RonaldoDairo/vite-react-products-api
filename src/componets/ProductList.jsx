@@ -7,6 +7,9 @@ const ProductList = () => {
     const [productsPerPage, setProductsPerPage] = useState(6);
     const [currentPage, setCurrentPage] = useState(1);
 
+    const lastIndex = currentPage * productsPerPage
+    const firstIndex = lastIndex - productsPerPage
+
 
     const productsList = async ()=>{
         const data = await fetch('https://fakestoreapi.com/products')
@@ -35,7 +38,7 @@ const ProductList = () => {
                         <button> Añadir</button>
                      </div>
                 </div>   
-            ))}
+            )).slice(0,6 )}
       </div>
       <Pagination 
         productsPerPage= {productsPerPage}
