@@ -4,7 +4,7 @@ import Pagination from './Pagination';
 const ProductList = () => {
     const [products, setProducts] = useState([]);
     const totalProducts = products.length
-    const [productsPerPage, setProductsPerPage] = useState(6);
+    const [productsPerPage, setProductsPerPage] = useState(3);
     const [currentPage, setCurrentPage] = useState(1);
 
     const lastIndex = currentPage * productsPerPage
@@ -38,7 +38,7 @@ const ProductList = () => {
                         <button> Añadir</button>
                      </div>
                 </div>   
-            )).slice(0,6 )}
+            )).slice(firstIndex, lastIndex )}
       </div>
       <Pagination 
         productsPerPage= {productsPerPage}
